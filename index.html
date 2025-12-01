@@ -1,74 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Food & Meal Agencies near Philadelphia</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Food Resources Near Me — Project 03</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!--
+    Project 03: Accessibility & Validation
+    Sources used to find agencies:
+      - City of Philadelphia Food & Meal Finder: https://www.phila.gov/food/
+      - Philabundance contact & "Find Food" pages: https://www.philabundance.org/
+      - Share Food Program Contact / Find Food: https://www.sharefoodprogram.org/
+      - Jewish Relief Agency: https://jewishrelief.org/
+    NOTE: Before submitting, validate HTML & CSS and run the WAVE accessibility checker.
+    See bottom of this file for instructions on how to generate and save validator/WAVE screenshots.
+  -->
 </head>
-
 <body>
+  <!-- Skip link for keyboard/screen reader users -->
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
 
-<header>
+  <header role="banner" class="site-header">
     <h1>Food & Meal Agencies near Philadelphia</h1>
-    <p>Three agencies that provide food/meals in the Philadelphia area (contact before visiting).</p>
-</header>
+    <p class="lede">Three agencies that provide food/meals in the Philadelphia area (contact before visiting).</p>
+  </header>
 
-<main>
+  <nav role="navigation" aria-label="Main navigation" class="main-nav">
+    <ul>
+      <li><a href="#table">Food Agencies Table</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#validation">Validation & Accessibility</a></li>
+      <li><a href="#footer">Contact</a></li>
+    </ul>
+  </nav>
 
-    <section aria-labelledby="table-heading" id="agencies">
-        <h2 id="table-heading">Food & Meal Agencies</h2>
+  <main id="maincontent" role="main">
+    <!-- Table section -->
+    <section id="table" aria-labelledby="table-heading">
+      <h2 id="table-heading">Food & Meal Agencies</h2>
 
-        <p>Three agencies that provide food or meals in Philadelphia.</p>
-
+      <!-- Accessible table: caption, table headers (scope), and responsive wrapper -->
+      <div class="table-scroll" role="region" aria-label="Table of food agencies">
         <table>
-            <thead>
-                <tr>
-                    <th scope="col">Agency Name</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Hours</th>
-                    <th scope="col">Website</th>
-                </tr>
-            </thead>
+          <caption>Three agencies that provide food or meals in Philadelphia</caption>
+          <thead>
+            <tr>
+              <th scope="col">Agency</th>
+              <th scope="col">Address</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Hours (call to confirm)</th>
+              <th scope="col">Website</th>
+            </tr>
+          </thead>
 
-            <tbody>
-                <tr>
-                    <td>Philabundance</td>
-                    <td>3616 S Galloway St, Philadelphia, PA 19148</td>
-                    <td>(215) 339-0900</td>
-                    <td>Mon–Fri: 9am–4pm</td>
-                    <td><a href="https://philabundance.org" target="_blank">Visit Site</a></td>
-                </tr>
+          <tbody>
+            <tr>
+              <td>
+                <strong><a href="https://www.philabundance.org/" target="_blank" rel="noopener noreferrer">Philabundance</a></strong>
+                <div class="sr-only">Food bank and distribution network</div>
+              </td>
+              <td>3616 S. Galloway St., Philadelphia, PA 19148</td>
+              <td><a href="tel:+12153390900">215-339-0900</a></td>
+              <td>Mon–Fri, typically 8:30 AM – 4:30 PM (call first)</td>
+              <td><a href="https://www.philabundance.org/" target="_blank" rel="noopener noreferrer">philabundance.org</a></td>
+            </tr>
 
-                <tr>
-                    <td>Share Food Program</td>
-                    <td>2901 W Hunting Park Ave, Philadelphia, PA 19129</td>
-                    <td>(215) 223-2220</td>
-                    <td>Mon–Fri: 10am–3pm</td>
-                    <td><a href="https://sharefoodprogram.org" target="_blank">Visit Site</a></td>
-                </tr>
+            <tr>
+              <td>
+                <strong><a href="https://www.sharefoodprogram.org/" target="_blank" rel="noopener noreferrer">Share Food Program</a></strong>
+              </td>
+              <td>2901 W. Hunting Park Ave., Philadelphia, PA 19129</td>
+              <td><a href="tel:+12152232220">215-223-2220</a></td>
+              <td>Varies by pantry site; call 215-223-2220 or check Find Food map</td>
+              <td><a href="https://www.sharefoodprogram.org/find-food/" target="_blank" rel="noopener noreferrer">sharefoodprogram.org</a></td>
+            </tr>
 
-                <tr>
-                    <td>Broad Street Ministry</td>
-                    <td>315 S Broad St, Philadelphia, PA 19107</td>
-                    <td>(215) 735-4847</td>
-                    <td>Tue–Thu: 1pm–3pm</td>
-                    <td><a href="https://www.broadstreetministry.org" target="_blank">Visit Site</a></td>
-                </tr>
-            </tbody>
+            <tr>
+              <td>
+                <strong><a href="https://jewishrelief.org/" target="_blank" rel="noopener noreferrer">Jewish Relief Agency (JRA)</a></strong>
+              </td>
+              <td>10980 Dutton Rd., Philadelphia, PA 19154</td>
+              <td><a href="tel:+16106600190">610-660-0190</a></td>
+              <td>Delivery programs & warehouse hours - call to confirm</td>
+              <td><a href="https://jewishrelief.org/" target="_blank" rel="noopener noreferrer">jewishrelief.org</a></td>
+            </tr>
+          </tbody>
         </table>
+      </div>
+      <p class="note">If none of these serve your exact ZIP code, use the City of Philadelphia Food Finder (<a href="https://www.phila.gov/food/" target="_blank" rel="noopener noreferrer">phila.gov/food</a>) or call 311 for local options.</p>
     </section>
 
-    <section id="validation" aria-labelledby="validation-heading">
-        <h2>Validation & Accessibility Results</h2>
-        <img src="images/wave.png" alt="WAVE results">
-        <img src="images/css-validator.png" alt="CSS validator results">
-        <img src="images/html-validator.png" alt="HTML validator results">
+    <!-- About the page -->
+    <section id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About this page</h2>
+      <p>
+        This page lists community partners and major food providers that serve Philadelphia residents.
+        Hours and services change frequently — always call ahead or check the provider's website before going.
+      </p>
     </section>
-</main>
-<footer>
-    <p>Created by Dedes — <a href="https://dedes-crypto.github.io/project01/">My GitHub Profile</a></p>
-</footer>
+
+    <!-- Validation / Accessibility instructions (user must run validators and upload screenshots to repo) -->
+    <section id="validation" aria-labelledby="validation-heading">
+      <h2 id="validation-heading">Validation & Accessibility Checklist</h2>
+
+      <ol>
+        <li>Validate <strong>HTML</strong> at the W3C validator: <a href="https://validator.w3.org/" target="_blank" rel="noopener noreferrer">validator.w3.org</a>. Save a screenshot of the "Document checking completed. No warnings or errors." result.</li>
+        <li>Validate <strong>CSS</strong> at the W3C CSS validator: <a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener noreferrer">jigsaw.w3.org/css-validator</a>. Save a screenshot of the successful validation.</li>
+        <li>Run the <strong>WAVE</strong> accessibility tool on the published GitHub Pages URL: <a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">wave.webaim.org</a>. Save a screenshot of the WAVE results page and upload it to your repository.</li>
+        <li>Fix any errors the validators or WAVE report and repeat until you have error-free validation screenshots (or no major WAVE errors).</li>
+      </ol>
+
+      <p class="note">Place the saved screenshots (HTML validator, CSS validator, WAVE) into your GitHub repo `project03` before final submission.</p>
+    </section>
+
+  </main>
+
+  <footer id="footer" role="contentinfo">
+    <p>Created by <a href="https://dedes-crypto.github.io/project03/" target="_blank" rel="noopener noreferrer">My GitHub Profile</a></p>
+    <p><small>Data sources: City of Philadelphia (phila.gov/food), Philabundance, Share Food Program, Jewish Relief Agency</small></p>
+  </footer>
 </body>
 </html>
