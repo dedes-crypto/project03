@@ -1,0 +1,141 @@
+/* styles.css — external stylesheet for Project03
+   Accessibility & Validation: ensures color contrast, keyboard focus visibility,
+   responsive table, and readable fonts.
+*/
+
+/* Basic page reset & layout */
+:root{
+  --brand-blue:#003366;
+  --accent:#0066cc;
+  --link:#0055aa;
+  --bg:#f7f7f7;
+  --text:#222;
+  --focus:#FFA500; /* visible focus color required for accessibility */
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.4;
+}
+
+/* Skip link - visible on focus only */
+.skip-link{
+  position:absolute;
+  left:-9999px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+.skip-link:focus{
+  left:1rem;
+  top:1rem;
+  width:auto;
+  height:auto;
+  padding:.5rem;
+  background:var(--brand-blue);
+  color:white;
+  border-radius:4px;
+  z-index:1000;
+}
+
+/* Header */
+.site-header{
+  background: linear-gradient(90deg,var(--brand-blue),var(--accent));
+  color:white;
+  padding:2rem 1rem;
+  text-align:center;
+}
+
+/* Navigation */
+.main-nav{
+  background:#074b7d;
+}
+.main-nav ul{
+  margin:0;
+  padding:.5rem;
+  display:flex;
+  justify-content:center;
+  gap:1.25rem;
+  list-style:none;
+}
+.main-nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+}
+.main-nav a:focus, .main-nav a:hover{
+  outline:3px solid var(--focus);
+  color:var(--link);
+}
+
+/* Main content */
+main{max-width:1000px;margin:1.5rem auto;padding:0 1rem}
+
+/* Table container to allow horizontal scroll on small screens */
+.table-scroll{overflow:auto;border-radius:6px}
+
+/* Table styles: accessible contrast, zebra rows, clear borders */
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+  margin-bottom:1rem;
+}
+caption{
+  text-align:left;
+  padding:.75rem 1rem;
+  font-weight:700;
+  color:var(--brand-blue);
+}
+th,td{
+  padding:.75rem 1rem;
+  border:1px solid #d5d5d5;
+  vertical-align:top;
+  text-align:left;
+  font-size:0.95rem;
+}
+thead th{
+  background:#f0f8ff;
+  color:var(--brand-blue);
+  font-weight:700;
+}
+tbody tr:nth-child(even){background:#fbfdff}
+
+/* Make phone links and websites obvious */
+a[href^="tel"], a[href^="http"]{
+  color:var(--link);
+  text-decoration:underline;
+}
+a:focus{
+  outline:4px solid var(--focus);
+  outline-offset:2px;
+}
+
+/* Section headings */
+h2{color:var(--brand-blue);border-left:6px solid var(--brand-blue);padding-left:.75rem}
+
+/* Notes and small text */
+.note{font-size:.95rem;color:#444;background:#fffbe6;padding:.5rem;border-radius:6px;border:1px solid #f0e6cc}
+
+/* Footer */
+footer{
+  background:linear-gradient(90deg,var(--brand-blue),#01304d);
+  color:white;
+  text-align:center;
+  padding:1rem;
+  margin-top:1.5rem;
+}
+footer a{color:#ffcc00;text-decoration:underline}
+
+/* Responsive adjustments */
+@media (max-width:640px){
+  .candidate-brief{display:block}
+  th,td{font-size:0.9rem;padding:.6rem}
+  h1{font-size:1.4rem}
+}
